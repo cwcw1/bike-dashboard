@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Story 2 - How Weather Conditions Affect Rental Demand</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="weather">
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Story page</p>
+        <h1>How Weather Conditions Affect Rental Demand</h1>
+        <p class="subhead">View humidity, temperature, weather condition, and bike rentals together in a coordinated chart system to see how weather conditions affect rental demand.</p>
+      </div>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Overview</a>
+        <a href="demand.html">Story 1</a>
+        <a href="weather.html" aria-current="page">Story 2</a>
+        <a href="season.html">Story 3</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="panel">
+        <div class="panel-header story-header">
+          <div>
+            <p class="section-kicker">Story 2</p>
+            <h2>How Weather Conditions Affect Rental Demand</h2>
+            <p class="section-text">Switch weather condition, season, and day type to reveal rental demand.</p>
+          </div>
+          <div id="weatherInsight" class="insight-callout"></div>
+        </div>
+
+        <div class="control-row">
+          <div class="control-group">
+            <label class="control-label" for="weatherSeason">Season filter</label>
+            <select id="weatherSeason"></select>
+          </div>
+          <div class="control-group">
+            <span class="control-label">Day type</span>
+            <div id="weatherDayTypeControl" class="segmented-control" aria-label="Weather day type filter"></div>
+          </div>
+          <div class="control-group">
+            <span class="control-label">Weather condition</span>
+            <div id="weatherConditionControl" class="pill-control" aria-label="Weather condition selector"></div>
+          </div>
+        </div>
+
+        <div class="story-grid weather-layout">
+          <article id="weather-matrix" class="card target-card">
+            <div class="card-header">
+              <div>
+                <p class="card-kicker">Comfort chart</p>
+                <h3>Average rentals per hour by temperature and humidity</h3>
+              </div>
+            </div>
+            <div id="weatherHeatmap" class="chart-host heatmap-chart" role="img" aria-label="Weather comfort heatmap"></div>
+          </article>
+
+          <article id="weather-conditions" class="card target-card">
+            <div class="card-header">
+              <div>
+                <p class="card-kicker">Condition comparison</p>
+                <h3>Average rentals per hour by weather condition</h3>
+              </div>
+            </div>
+            <div id="weatherBarChart" class="chart-host tall-chart" role="img" aria-label="Weather condition comparison chart"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="tooltip" class="tooltip" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>

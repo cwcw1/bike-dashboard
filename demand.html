@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Story 1 - Rental demand by Rider Type, Hour, and Day of Week</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="demand">
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Story page</p>
+        <h1>Rental demand by Rider Type, Hour, and Day of Week</h1>
+        <p class="subhead">Compare how total rentals are shaped by registered and casual riders across hour and day of week.</p>
+      </div>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Overview</a>
+        <a href="demand.html" aria-current="page">Story 1</a>
+        <a href="weather.html">Story 2</a>
+        <a href="season.html">Story 3</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="panel">
+        <div class="panel-header story-header">
+          <div>
+            <p class="section-kicker">Story 1</p>
+            <h2>Rental demand by Rider Type, Hour, and Day of Week</h2>
+            <p class="section-text">Use the controls to compare rider types by hour and by day type.</p>
+          </div>
+          <div id="demandInsight" class="insight-callout"></div>
+        </div>
+
+        <div class="control-row">
+          <div class="control-group">
+            <span class="control-label">Rider type</span>
+            <div id="demandMetricControl" class="segmented-control" aria-label="Demand metric selector"></div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="demandDayType">Day type</label>
+            <select id="demandDayType"></select>
+          </div>
+          <div class="control-group range-group">
+            <label class="control-label" for="hourStart">Hour range</label>
+            <div class="range-pair">
+              <input id="hourStart" type="range" min="0" max="23" value="0">
+              <input id="hourEnd" type="range" min="0" max="23" value="23">
+            </div>
+            <p id="hourRangeLabel" class="range-label"></p>
+          </div>
+        </div>
+
+        <div class="story-grid two-up">
+          <article id="hourly-demand" class="card target-card">
+            <div class="card-header">
+              <div>
+                <p class="card-kicker">By hour</p>
+                <h3>Total hourly rentals demand</h3>
+              </div>
+            </div>
+            <div id="demandHourlyChart" class="chart-host tall-chart" role="img" aria-label="Hourly demand chart"></div>
+          </article>
+
+          <article id="weekday-demand" class="card target-card">
+            <div class="card-header">
+              <div>
+                <p class="card-kicker">By day of week</p>
+                <h3>Total rentals by day of week and rider type</h3>
+                <p id="demandWeekdayContext" class="section-text compact-note"></p>
+              </div>
+            </div>
+            <div id="demandWeekdayChart" class="chart-host tall-chart" role="img" aria-label="Weekday demand chart"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="tooltip" class="tooltip" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>

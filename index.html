@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capital Bikeshare Demand Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="overview">
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Bikeshare Dashboard</p>
+        <h1>Capital Bikeshare Rental Dashboard</h1>
+        <p class="subhead">
+          An interactive dashboard exploring bike rental demand by hour, day of week, weather conditions, and season in the Capital Bikeshare system from 2011 to 2012 using the real <code>hour.csv</code> dataset.
+          <br>Source: <a href="https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset" target="_blank" rel="noreferrer">UCI Bike Sharing Dataset</a>
+          <br>Creator: Hadi Fanaee-T
+        </p>
+      </div>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html" aria-current="page">Overview</a>
+        <a href="demand.html">Story 1</a>
+        <a href="weather.html">Story 2</a>
+        <a href="season.html">Story 3</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="panel hero-panel">
+        <div class="panel-header">
+          <div>
+            <p class="section-kicker">Overview</p>
+            <h2>Navigate the demand story from summary to detail</h2>
+            <p class="section-text">
+              The KPI cards and story cards below are now interactive entry points. Hover or focus them to see the
+              active state, then click to open the related chart page.
+            </p>
+          </div>
+        </div>
+
+        <div id="kpiGrid" class="clickable-grid" aria-live="polite"></div>
+
+        <div class="overview-grid">
+          <article class="card summary-card">
+            <div class="card-header">
+              <div>
+                <p class="card-kicker">Monthly overview</p>
+                <h3>Bikesharing trend across the full timeline (2011-2012)</h3>
+              </div>
+              <div class="control-group compact">
+                <span class="control-label">Rider type</span>
+                <div id="overviewMetricControl" class="segmented-control" aria-label="Overview metric selector"></div>
+              </div>
+            </div>
+            <div id="overviewChart" class="chart-host" role="img" aria-label="Monthly ridership chart"></div>
+          </article>
+        </div>
+
+        <aside class="story-links story-links-below">
+          <a class="card story-card interactive-card" href="demand.html">
+            <p class="card-kicker">Story 1</p>
+            <h3>Rental demand by Rider Type, Hour, and Day of Week</h3>
+            <p>Open the rider mix analysis and compare how total demand is built from registered and casual users across hour, and day of week.</p>
+            <div id="storyPreviewDemand" class="preview-host" aria-hidden="true"></div>
+            <p class="link-note">Click to view chart</p>
+          </a>
+
+          <a class="card story-card interactive-card" href="weather.html">
+            <p class="card-kicker">Story 2</p>
+            <h3>How Weather Conditions Affect Ridership</h3>
+            <p>Open the comfort chart and see how temperature, humidity, and weather condition shape ridership.</p>
+            <div id="storyPreviewWeather" class="preview-host" aria-hidden="true"></div>
+            <p class="link-note">Click to view chart</p>
+          </a>
+
+          <a class="card story-card interactive-card" href="season.html">
+            <p class="card-kicker">Story 3</p>
+            <h3>Seasonal/Seasonal Hourly Rental Demand</h3>
+            <p>Open the season analysis to compare overall seasonal demand with hourly seasonal demand.</p>
+            <div id="storyPreviewSeason" class="preview-host" aria-hidden="true"></div>
+            <p class="link-note">Click to view chart</p>
+          </a>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <div id="tooltip" class="tooltip" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>
